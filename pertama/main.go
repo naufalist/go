@@ -11,4 +11,6 @@ func main(){
 	result := calculation.Add(9, 9)
 
 	fmt.Println(result)
+
+	fmt.Println(calculation.Multiply(100, 50))
 }
