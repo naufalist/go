@@ -10,6 +10,13 @@ type User struct {
 	IsActive  bool
 }
 
+type Group struct {
+	Name        string
+	Admin       User
+	Users       []User
+	IsAvailable bool
+}
+
 func main() {
 	// user := User{}
 	// user.ID = 1
@@ -50,13 +57,31 @@ func main() {
 	user := User{1, "Naufal", "Muhammad", "tes@gmail.com", true}
 	user2 := User{2, "Naufal2", "Muhammad2", "tes@gmail.com", true}
 
-	displayUser1 := displayUser(user)
-	displayUser2 := displayUser(user2)
+	users := []User{user, user2}
 
-	fmt.Println(displayUser1)
-	fmt.Println(displayUser2)
+	group := Group{"Gamer", user, users, true}
+
+	displayGroup(group)
+
+	// displayUser1 := displayUser(user)
+	// displayUser2 := displayUser(user2)
+
+	// fmt.Println(displayUser1)
+	// fmt.Println(displayUser2)
 }
 
 func displayUser(user User) string {
 	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
+}
+
+func displayGroup(group Group) {
+	fmt.Printf("Name : %s", group.Name)
+	fmt.Println()
+	fmt.Printf("Member count: %d", len(group.Users))
+	fmt.Println()
+
+	fmt.Println("Users name: ")
+	for _, user := range group.Users {
+		fmt.Println(user.FirstName)
+	}
 }
