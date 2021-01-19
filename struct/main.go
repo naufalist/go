@@ -21,11 +21,30 @@ func (user User) display() string {
 	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
 }
 
+func (group Group) display() {
+	fmt.Printf("Name : %s", group.Name)
+	fmt.Println()
+	fmt.Printf("Member count: %d", len(group.Users))
+	fmt.Println()
+
+	fmt.Println("Users name: ")
+	for _, user := range group.Users {
+		fmt.Println(user.FirstName)
+	}
+}
+
 func main() {
 	user := User{1, "Naufal", "Muhammad", "tes@gmail.com", true}
+	user2 := User{2, "Naufal2", "Muhammad2", "tes@gmail.com", true}
 
 	result := user.display()
 	println(result)
+
+	users := []User{user, user2}
+
+	group := Group{"Gamer", user, users, true}
+
+	group.display()
 
 	// user := User{}
 	// user.ID = 1
