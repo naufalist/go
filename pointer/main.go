@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	// #1
 	// numberA := 5
 	// numberB := &numberA
 
@@ -15,6 +16,7 @@ func main() {
 	// fmt.Println(*numberB)
 	// fmt.Println(numberA)
 
+	// #2
 	// var numberA int = 5
 	// var numberB *int = &numberA
 
@@ -28,6 +30,7 @@ func main() {
 	// fmt.Println(numberB)
 	// fmt.Println(*numberB)
 
+	// #3
 	number := 5
 	fmt.Println("Alamat memory :", &number)
 	fmt.Println("Nilai awal :", number)
