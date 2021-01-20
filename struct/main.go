@@ -1,50 +1,22 @@
 package main
 
-import "fmt"
-
-type User struct {
-	ID        int
-	FirstName string
-	LastName  string
-	Email     string
-	IsActive  bool
-}
-
-type Group struct {
-	Name        string
-	Admin       User
-	Users       []User
-	IsAvailable bool
-}
-
-func (user User) display() string {
-	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
-}
-
-func (group Group) display() {
-	fmt.Printf("Name : %s", group.Name)
-	fmt.Println()
-	fmt.Printf("Member count: %d", len(group.Users))
-	fmt.Println()
-
-	fmt.Println("Users name: ")
-	for _, user := range group.Users {
-		fmt.Println(user.FirstName)
-	}
-}
+import (
+	"fmt"
+	"struct/management"
+)
 
 func main() {
-	user := User{1, "Naufal", "Muhammad", "tes@gmail.com", true}
-	user2 := User{2, "Naufal2", "Muhammad2", "tes@gmail.com", true}
+	user1 := management.User{1, "Naufal", "Muhammad", "tes@gmail.com", true}
+	user2 := management.User{2, "Naufal2", "Muhammad2", "tes@gmail.com", true}
 
-	result := user.display()
-	println(result)
+	result := user1.Display()
+	fmt.Println(result)
 
-	users := []User{user, user2}
+	users := []management.User{user1, user2}
 
-	group := Group{"Gamer", user, users, true}
+	group := management.Group{"Gamer", user1, users, true}
 
-	group.display()
+	group.Display()
 
 	// user := User{}
 	// user.ID = 1
@@ -98,18 +70,18 @@ func main() {
 	// fmt.Println(displayUser2)
 }
 
-func displayUser(user User) string {
-	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
-}
+// func displayUser(user User) string {
+// 	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
+// }
 
-func displayGroup(group Group) {
-	fmt.Printf("Name : %s", group.Name)
-	fmt.Println()
-	fmt.Printf("Member count: %d", len(group.Users))
-	fmt.Println()
+// func displayGroup(group Group) {
+// 	fmt.Printf("Name : %s", group.Name)
+// 	fmt.Println()
+// 	fmt.Printf("Member count: %d", len(group.Users))
+// 	fmt.Println()
 
-	fmt.Println("Users name: ")
-	for _, user := range group.Users {
-		fmt.Println(user.FirstName)
-	}
-}
+// 	fmt.Println("Users name: ")
+// 	for _, user := range group.Users {
+// 		fmt.Println(user.FirstName)
+// 	}
+// }
