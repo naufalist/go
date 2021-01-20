@@ -38,6 +38,6 @@ func main() {
 
 func change(old *int, new int) {
 	*old = new
+
 	fmt.Println("Alamat memory :", old)
-	fmt.Println("Di dalam function :", old)
 }
